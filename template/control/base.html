@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="ThemeBucket">
+    <title>{% block title %}2018驾照考试科目一_科目四模拟考试2018后台管理{%end%}</title>
+  <link rel="shortcut icon" href="#" type="image/png">
+<!-- public -->
+  <link href="/public/css/style.css" rel="stylesheet">
+  <link href="/public/css/style-responsive.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="/public/js/html5shiv.js"></script>
+  <script src="/public/js/respond.min.js"></script>
+  <![endif]-->
+  <!-- public end -->
+</head>
+
+
+
+<body class="sticky-header">
+    <section>
+        <!-- left side start-->
+        <!--左侧边栏-->
+        <div class="left-side sticky-left-side">
+            {% module left_side() %}
+        </div>
+        <!-- left side end-->
+
+        <!-- main content start-->
+        <div class="main-content" >
+
+            <!-- header section start-->
+            <!--顶部菜单栏-->
+            <div class="header-section">
+                {% module top_header() %}
+            </div>
+            <!-- header section end-->
+
+            <!-- page heading start-->
+            <!--正文head-->
+            <div class="page-heading">
+            </div>
+            <!-- page heading end-->
+
+
+            <!--body wrapper start-->
+            <!-- 正文-->
+            <section class="wrapper">
+                {% block wrapper %}{% end %}
+            </section>
+            <!--body wrapper start-->
+
+
+            <!--footer section start-->
+            <footer>
+            </footer>
+            <!--footer section end-->
+
+
+
+
+
+        </div>
+        <!-- main content end-->
+
+    </section>
+
+
+
+
+<!-- public -->
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="/public/js/jquery-1.10.2.min.js"></script>
+<script src="/public/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/public/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/modernizr.min.js"></script>
+<script src="/public/js/jquery.nicescroll.js"></script>
+<script src="/public/js/scripts.js"></script>
+<script src="/public/js/exam/layer/layer.js"></script>
+<script>
+        if( location.pathname.search('question') != -1 ){
+            $('.menu-list').addClass('nav-active');
+        };
+
+        $('.sub-menu-list > li').find('a').each(function(){
+            var this_href = $(this).attr('href');
+            if( this_href == location.pathname ){
+                $(this).parent().addClass('active');
+            }
+        });
+
+</script>
+<!-- public end -->
+
+{% block script %}{% end %}
+
+</body>
+</html>
+

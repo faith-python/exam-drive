@@ -1,0 +1,103 @@
+<doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>2018驾照考试科目一_科目四模拟考试2018</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/public/css/exam/style.css">
+  <!--<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1468169579_2859218.css">-->
+  <!--<script charset="utf-8" src="https://ers.baidu.com/app/s.js?siteId=6454678&amp;goTop=1"></script>-->
+  <script type="text/javascript" src="/public/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="/public/js/exam/layer/layer.js"></script>
+  <link rel="stylesheet" href="/public/js/exam/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+  <script type="text/javascript" src="/public/js/jquery.cookies.js"></script>
+  <script type="text/javascript" src="/public/js/exam/jquery.countdown.js"></script>
+</head>
+<body>
+{% module ui_top() %}
+<div class="ui-car">
+ <div class="wrap clearfix">
+  <ul>
+   <li class="smallcar ">
+     <a href="/drill/small//" class="car-icon icon-c1 "><em></em></a>
+     <div class="car-text"><a href="/drill/small//" target="_blank">小车 C1/C2</a></div>
+   </li>
+   <li class="truckcar">
+     <a href="/drill/truck//" class="car-icon icon-c3 "><em></em></a>
+     <div class="car-text"><a href="/drill/truck//" target="_blank">货车 A2/B2</a></div>
+   </li>
+   <li class="buscar">
+     <a href="/drill/bus//" class="car-icon icon-c2 "><em></em></a>
+     <div class="car-text"><a href="/drill/bus//" target="_blank">客车 A1/B1</a></div>
+   </li>
+
+ </ul>
+</div>
+</div>
+<div class="ui-practice">
+  <div class="wrap clearfix">
+    <div class="practice-block f-l p1">
+      <h3>2018小车理论考试 科目一</h3>
+      <p>驾照类型: C1、C2</p>
+      <a href="/drill/small/exam/" target="_blank" class="center">
+       全真模拟
+       <em><img src="/public/images/exam/img2_5.png"></em>
+     </a>
+     <a href="/drill/small/order/" target="_blank" class="btn btn1">顺序练习</a>
+     <a href="/drill/small/random/" target="_blank" class="btn btn2">随机练习</a>
+
+
+   </div>
+   <div class="practice-block f-l p2">
+      <h3>2018安全文明考试 科目四</h3>
+      <!--<p>驾照类型: C1、C2</p>-->
+      <a href="/drill/4/exam/" target="_blank" class="center">
+       全真模拟
+       <em><img src="/public/images/exam/img2_6.png"></em>
+     </a>
+     <a href="/drill/4/order/" target="_blank" class="btn btn1">顺序练习</a>
+     <a href="/drill/4/random/" target="_blank" class="btn btn2">随机练习</a>
+
+
+ </div>
+</div>
+</div>
+
+<!--点击返回顶部-->
+<div id="hm_t_undefined" class="hm-t-container"></div>
+
+
+
+<script type="text/javascript">
+<!--top 划入事件-->
+  var cnum='1';
+  cnum=parseInt(cnum);
+  $('.chexing-top span:first-child').html($('.chexing-list a:nth-child('+cnum+')').html());
+  $('.chexing').mouseover(function(){
+    $('.chexing-list').show();
+  });
+  $('.chexing').mouseout(function(){
+    $('.chexing-list').hide();
+  });
+
+
+
+function jdhddh(thisObj,Num){
+  $('#navhljs1 a').removeClass('exam-current');
+  $('#navhljs1 a').eq(Num).addClass('exam-current');
+  if(thisObj.className == "active")return;
+    var tabObj = thisObj.parentNode.id;
+    var tabList = document.getElementById(tabObj).getElementsByTagName("a");
+    for(i=0; i <tabList.length; i++){
+     if (i == Num){
+      document.getElementById(tabObj+"_c"+i).style.display = "block";
+    }else{
+      document.getElementById(tabObj+"_c"+i).style.display = "none";
+    }
+  }
+}
+</script>
+<script src="/public/js/exam/load-question.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block wrapper %}
+<!--展现数据-->
+<div class="row">
+                <div class="col-sm-12">
+                <section class="panel">
+                <header class="panel-heading">
+                    查看数据
+                    <!--<span class="tools pull-right">-->
+                        <!--<a href="javascript:;" class="fa fa-chevron-down"></a>-->
+                        <!--<a href="javascript:;" class="fa fa-times"></a>-->
+                     <!--</span>-->
+                </header>
+                <div class="panel-body">
+                <div class="adv-table editable-table ">
+                <div class="clearfix">
+                    <!--<div class="btn-group">-->
+                        <!--<a class="btn btn-primary add-data-btn">-->
+                            <!--添加 <i class="fa fa-plus"></i>-->
+                        <!--</a>-->
+
+                    <!--</div>-->
+
+                </div>
+                <div class="space15"></div>
+                <table class="table table-striped table-hover table-bordered" id="editable-sample">
+                <thead>
+
+                {% if uri.endswith('user/answer') != -1 %}
+                <!--user data-->
+                    <tr>
+                        <th>用户名</th>
+                        <th>总分</th>
+                        <th>答对题数</th>
+                        <th>答错题数</th>
+                        <th>漏答题数</th>
+                    </tr>
+                {% end %}
+                </thead>
+                <tbody>
+
+                {% for user in data %}
+                        {% for answer in user.source_obj %}
+                            <tr class="">
+                                <td>{{ user.username }}</td>
+                                <td>{{ answer.score }}</td>
+                                <td>{{ answer.rightnum }}</td>
+                                <td>{{ answer.wrongnum }}</td>
+                                <td>{{ answer.loudanum }}</td>
+
+
+                                {% if user.id == 1 %}
+
+                                <!--管理员-->
+                                    <!--<td> <del><a class="" data-value="{{ answer.uuid }}" href="javascript:;">编辑</a></del></td>-->
+                                    <!--<td><del><a class="" data-value="{{ answer.uuid }}" href="javascript:;">删除</a></del></td>-->
+
+                                     <!--<td><a class="data-edit" data-value="{{ answer.uuid }}" href="javascript:;">编辑</a></td>-->
+                                    <td><a class="data-delete" data-value="{{ answer.uuid }}" href="javascript:;">删除</a></td>
+                                {% end %}
+
+                            </tr>
+
+
+                    {% end %}
+                {% end %}
+                </tbody>
+                </table>
+                </div>
+                </div>
+                </section>
+                </div>
+                </div>
+
+
+{% end %}
+
+{% block script %}
+<script src="/public/js/edit-data.js"></script>
+{% end %}

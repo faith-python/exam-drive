@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>驾照考试-2018-注册</title>
+
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/style-responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/layui/css/layui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/public/js/html5shiv.js"></script>
+    <script src="/public/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body" style="">
+
+<div class="container">
+
+    <form class="form-signin" action="/reg" method="post">
+        {% raw xsrf_form_html() %}
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">注册</h1>
+            <img src="/public/images/login-logo.png"  width="280px" alt="">
+        </div>
+
+
+        <div class="login-wrap">
+            <p>输入你的手机号:</p>
+            
+            
+            <input type="text" autofocus="" placeholder="手机号码" class="form-control" name="username" maxlength="11" minlength="11">
+            
+
+
+            <p>请认真填写你的个人信息:</p>
+            <input type="text" autofocus="" placeholder="昵称" class="form-control" name="nickname" maxlength="12">
+            <input type="password" placeholder="输入密码" class="form-control" name="password1">
+            <input type="password" placeholder="确认密码" class="form-control" name="password2">
+            <style>
+                .captcha.form-control {
+                    border: 0;
+                }
+                .captcha.form-control::after{
+                    content: '';
+                    clear: both;
+                    display:block;
+
+                }
+                .captcha.form-control input {
+                        width: 100px;
+                        height: 40px;
+                        margin-bottom: 0;
+                        background-color: #eaeaec;
+                        float: left;
+                }
+                .captcha.form-control img {
+                    background-color: aliceblue;
+                    border-radius: 6px;
+                    float: right;
+                }
+            </style>
+            <div class="captcha form-control">
+                <input type="text" name="captcha">
+                <img src="" width="100px" height="40px"  alt="验证码">
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" value="agree this condition" checked="true">我同意服务条款</label>
+            <span type="submit" class="btn btn-lg btn-login btn-block btn-reg">
+                <i class="fa fa-check"></i>
+            </span>
+
+            <div class="registration">
+                已经注册了?
+                <a href="/login" class="">
+                    去登录
+                </a>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="/public/js/jquery-1.10.2.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/modernizr.min.js"></script>
+<script src="/public/layui/layui.all.js"></script>
+<script src="/public/js/exam/sigin.js"></script>
+<script>
+    $sigin.reg_init();
+    <!--check_captcha_code_eq();-->
+</script>
+
+
+
+</body>
+</html>

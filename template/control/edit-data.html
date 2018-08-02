@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% block title  %}
+2018驾照考试科目一_科目四模拟考试2018后台
+{%end%}
+
+{% block wrapper %}
+
+   <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            {% if data %}
+                                修改数据
+                            {% else %}
+                                添加数据
+                            {% end %}
+                        </header>
+
+                        <div class="panel-body">
+                            <div class=" form">
+                                <form class="cmxform form-horizontal adminex-form" id="commentForm" method="get" action="" novalidate="novalidate">
+                                   {% raw xsrf_form_html() %}
+                                    {% if data %}
+                                    <input type="hidden" name="uuid" value="{{ data.uuid }}">
+                                    {% end %}
+
+
+
+                {% if (not data) and request.uri.find('/user') != -1 %}
+                                        <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-2">用户名:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="username" type="text" name="username" maxlength="11" minlength="11" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="nickname" class="control-label col-lg-2">昵称:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="nickname" type="text" name="nickname" maxlength="12" minlength="3" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="password" class="control-label col-lg-2">密码:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="password" type="text" name="password" maxlength="16" minlength="6" ">
+                                        </div>
+                                    </div>
+            {% elif  (not data) and request.uri.find('/question') != -1 %}
+                                        <!--<div class="form-group ">-->
+                                        <!--<label for="qid" class="control-label col-lg-2">id:</label>-->
+                                        <!--<div class="col-lg-10">-->
+                                            <!--<input class=" form-control" id="qid" name="qid" minlength="" type="text" required="" >-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="form-group ">
+                                        <label for="question" class="control-label col-lg-2">题目:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="question" type="text" name="question" required="" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="bestanswer" class="control-label col-lg-2">解释:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="bestanswer" type="text" name="bestanswer" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ta" class="control-label col-lg-2">答案:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="ta" type="text" name="ta" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="a" class="control-label col-lg-2">选择1:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="a" type="text" name="a" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="b" class="control-label col-lg-2">选择2:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="b" type="text" name="b" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="c" class="control-label col-lg-2">选择3:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="c" type="text" name="c" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="d" class="control-label col-lg-2">选择4:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="d" type="text" name="d" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="img" class="control-label col-lg-2">图片地址:</label>
+                                        <div class="col-lg-10">
+
+                                            <input class="form-control " id="img" type="text" name="img" placeholder="图片地址" >
+                                        </div>
+                                    </div>
+
+            {% end %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                {% if hasattr(data, 'question') %}
+
+                                    <!--<div class="form-group ">-->
+                                        <!--<label for="qid" class="control-label col-lg-2">id:</label>-->
+                                        <!--<div class="col-lg-10">-->
+                                            <!--<input class=" form-control" id="qid" name="qid" minlength="" type="text" required="" value="{{ data.qid }}">-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <div class="form-group ">
+                                        <label for="question" class="control-label col-lg-2">题目:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="question" type="text" name="question" required="" value="{{ data.question }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="bestanswer" class="control-label col-lg-2">解释:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="bestanswer" type="text" name="bestanswer" value="{{ data.explains }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="ta" class="control-label col-lg-2">答案:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="ta" type="text" name="ta" value="{{ data.answer }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="a" class="control-label col-lg-2">选择1:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="a" type="text" name="a" value="{{ data.item1 }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="b" class="control-label col-lg-2">选择2:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="b" type="text" name="b" value="{{ data.item2 }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="c" class="control-label col-lg-2">选择3:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="c" type="text" name="c" value="{{ data.item3 }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="d" class="control-label col-lg-2">选择4:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="d" type="text" name="d" value="{{ data.item4 }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="img" class="control-label col-lg-2">图片地址:</label>
+                                        <div class="col-lg-10">
+                                            <img src="{{ data.img_url }}" alt="题目图片" style="width: 160px;height: 100px;">
+                                            <input class="form-control " id="img" type="text" name="img" value="{{ data.img_url }}">
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group ">-->
+                                        <!--<label for="locked" class="control-label col-lg-2">是否锁定:</label>-->
+                                        <!--<div class="col-lg-10">-->
+                                            <!--&lt;!&ndash;<input class="form-control " id="locked" type="text" name="locked" value="{{ data.locked }}">&ndash;&gt;-->
+                                            <!--<select>-->
+
+                                              <!--<option value="0">否</option>-->
+                                                <!--<option value="1">是</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+
+                                {% elif hasattr(data, 'username') %}
+                                    <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-2">用户名:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="username" type="text" name="username" maxlength="11" minlength="11" value="{{ data.username }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="nickname" class="control-label col-lg-2">昵称:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="nickname" type="text" name="nickname" maxlength="12" minlength="3" value="{{ data.nickname }}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="password" class="control-label col-lg-2">密码:</label>
+                                        <div class="col-lg-10">
+                                            <input class="form-control " id="password" type="text" name="password" maxlength="16" minlength="6" placeholder="{{ data.password }}">
+                                        </div>
+                                    </div>
+                                    <!--<div class="form-group ">-->
+                                        <!--<label for="locked" class="control-label col-lg-2">是否锁定:</label>-->
+                                        <!--<div class="col-lg-10">-->
+
+                                            <!--&lt;!&ndash;<input class="form-control " id="locked" type="text" name="locked" value="{{ data.locked }}">&ndash;&gt;-->
+                                            <!--<select>-->
+                                              <!--<option value="0">否</option>-->
+                                                <!--<option value="1">是</option>-->
+                                            <!--</select>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+
+
+
+                                {% end %}
+
+
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <span class="btn btn-primary save-data-btn">保存</span>
+                                            <button class="btn btn-default back-reload-data" onclick="javascript:history.go(-1);window.location.href = document.referrer;" type="button">返回</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+{% end %}
+
+{% block script %}
+<script src="/public/js/control/upload.js"></script>
+{% end %}

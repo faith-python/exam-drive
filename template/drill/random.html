@@ -1,0 +1,240 @@
+<doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>2018驾照考试科目一_科目四模拟考试2018</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/public/css/exam/style.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1468169579_2859218.css">
+  <script type="text/javascript" src="/public/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="/public/js/exam/layer/layer.js"></script>
+  <link rel="stylesheet" href="/public/js/exam/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+  <script type="text/javascript" src="/public/js/jquery.cookies.js"></script>
+  <script type="text/javascript" src="/public/js/exam/jquery.countdown.js"></script>
+</head>
+<body>
+    {% module ui_top() %}
+<div class="ui-content">
+  <div class="wrap clearfix">
+    <div class="ui-data">
+      <div class="wrap clearfix">
+        <div class="ui-field f-l ui-topic-kaoshi-left" style="height:auto;overflow:hidden">
+         <span class="topic-bg"><em class="hd-title">驾照考场</em></span>
+         <div class="field-dt">
+           <em>学员信息:</em>
+           <div class="field-cn">
+            <ul>
+              <li class="field-p field-p-center"><a href="#" style="border: none;"><img src="/public/images/exam/field-dt.png" style="width: 136px;"></a><i></i></li>
+              <ul class="field-name">
+
+                <div class="getnickname"  data-value='{% if hasattr(current_user, 'nickname') %}{{ current_user.nickname }}{% end %}' ></div>
+
+             </ul>
+           </ul>
+         </div>
+       </div>
+          {% if showtime %}
+          <!-- jq countdown set class name start-->
+       <div class="setting">
+        时：<input type="text" name="" class="input hour" maxlength="2" value="00">
+        分：<input type="text" name="" class="input minute" maxlength="2" value="1">
+        秒：<input type="text" name="" class="input second" maxlength="2" value="00">
+        <a class="begin">重置</a>
+      </div>
+          <div class="ui-time clearfix">
+        <span>剩余时间</span>
+        <div class="time" alltime="132">
+          <ul>
+            <li class="num hide"><span class="static old">0</span></li>
+            <li class="num hide"><span class="static old">0</span></li>
+            <li class="hide"><span>:</span></li>
+            <li class="num"><span class="static old" id="min1">0</span></li>
+            <li class="num"><span class="static old" style="opacity: 1;">1</span></li>
+            <li class="space"><span></span></li>
+            <li class="num"><span class="static old" style="opacity: 1;">0</span></li>
+            <li class="num"><span class="static old" style="opacity: 1;">0</span></li>
+          </ul>
+        </div>
+      </div>
+          <!-- countdwon  end -->
+      {% end %}
+      <div style="background:#f5f5f5;height:10px;width:100%"></div>
+    </div>
+    <div class="ui-topic f-r ">
+      <div class="topic-t ui-topic-kaoshi">
+       <div class="topic-l f-l" id="Content"><ul><li>1/100. 驾驶机动车向右变更车道前应仔细观察右侧车道车流情况的原因是什么?</li><li choice="1">A、准备抢行</li><li choice="2">B、判断有无变更车道的条件</li><li choice="3">C、迅速变更车道</li><li choice="4">D、准备迅速停车</li></ul></div>
+      <div class="topic-r f-l ">
+        <div class="imgorvideo"></div>
+        <div class="topic-but" id="btnlists"><input class="item" type="button" value="A" choice="1"><input class="item" type="button" value="B" choice="2"><input class="item" type="button" value="C" choice="3"><input class="item" type="button" value="D" choice="4"></div>
+      </div>
+    </div>
+    <div class="topic-b f-l">
+      <div class="topic-b-t">
+       <span>提示信息</span>
+       <p id="tishi">单选题，请选择你认为正确的答案！</p>
+     </div>
+     <input class="topic-1" type="button" value="交卷" onclick="jiaojuanlayer()">
+     <input class="topic-2" type="button" value="下一题" onclick="nextQ()">
+     <input class="topic-3" type="button" value="上一题" onclick="preQ()">
+   </div>
+   <div style="clear:both"></div>
+ </div>
+</div>
+<div class="ui-info  mt-30">
+  <div class="wrap clearfix">
+    <span><em class="info-hd">答题信息</em></span>
+    <div class="info-answer">
+      <ul id="tlists">
+
+                        <li id="T1" num="1" trueanswer="2" tixing="2"><a href="javascript:;">1</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+</div>
+  {% if showalert %}
+      <div class="wrap clearfix layui-layer-wrap" id="main" style="display: none;">
+  <div class="m-top"><h4 move="ok" style="cursor: move;">提示信息</h4></div>
+  <div class="m-content">
+    <p>按交管部门通知，科目一考试系统全面更新。全真模拟考试下不能修改答案，每做一题，系统自动计算错误题数，及格标准为90分。…</p>
+  </div>
+  <div class="m-bottom">
+    <button onclick="closeDialog();">确认</button>
+  </div>
+</div>
+  {% end %}
+<div class="wrap clearfix" id="check" style="display:none">
+  <div class="c-top"><h4>考试确认窗口</h4></div>
+  <div class="c-content">
+    <span>操作提示：</span>
+    <p>1：点击【确认交卷】，将提交考试成绩，结束考试！</p>
+    <p>2：点击【继续考试】，将关闭本窗口，继续考试！</p>
+  </div>
+  <div class="c-bottom">
+    <button onclick="tijiao()" class="current">确认交卷</button>
+    <button onclick="jixu_kaoshi()" class="b2">继续考试</button>
+  </div>
+</div>
+
+<div class="wrap clearfix" id="stop" style="display:none">
+  <div class="s-top"><h4>中场休息窗口</h4></div>
+  <div class="s-content">
+    <a href="#"><img src="/public/images/exam/l-bg.jpg"></a>
+  </div>
+  <div class="s-bottom">
+    <button onclick="closeDialog()">继续考试</button>
+  </div>
+</div>
+
+<div class="wrap clearfix" id="tixing" style="display:none">
+  <div class="c-top"><h4>提示信息</h4></div>
+  <div class="c-content">
+    <p>您已答错了11题，考试得分<span class="score">0</span>分，成绩不合格，是否继续答题？</p>
+  </div>
+  <div class="c-bottom">
+    <button onclick="tijiao()" class="current">确认交卷</button>
+    <button onclick="jixu_lianxi()" class="b2">继续考试</button>
+  </div>
+</div>
+
+<div class="wrap clearfix" id="explain" style="display:none">
+  <div class="e-top"><h4>题目详细解说</h4></div>
+  <div class="e-content">
+    <p id="jieshi_content"></p>
+  </div>
+  <div class="e-bottom">
+    <button onclick="closeJiexi()">关闭解释</button>
+    <em>页面将在<span id="time">10</span>秒后自动关闭，回到考试状态！</em>
+  </div>
+</div>
+<div id="sss"></div>
+
+
+</div>
+
+<div id="qanswers"></div>
+<script type="text/javascript">
+<!--top 划入事件-->
+  var cnum='1';
+  cnum=parseInt(cnum);
+  $('.chexing-top span:first-child').html($('.chexing-list a:nth-child('+cnum+')').html());
+  $('.chexing').mouseover(function(){
+    $('.chexing-list').show();
+  });
+  $('.chexing').mouseout(function(){
+    $('.chexing-list').hide();
+  });
+
+
+
+function jdhddh(thisObj,Num){
+  $('#navhljs1 a').removeClass('exam-current');
+  $('#navhljs1 a').eq(Num).addClass('exam-current');
+  if(thisObj.className == "active")return;
+    var tabObj = thisObj.parentNode.id;
+    var tabList = document.getElementById(tabObj).getElementsByTagName("a");
+    for(i=0; i <tabList.length; i++){
+     if (i == Num){
+      document.getElementById(tabObj+"_c"+i).style.display = "block";
+    }else{
+      document.getElementById(tabObj+"_c"+i).style.display = "none";
+    }
+  }
+}
+</script>
+
+
+<script type="text/javascript" src="/public/js/exam/jquery.countdown.js"></script>
+<script src="/public/js/exam/load-question.js"></script>
+<script type="text/javascript">
+
+var Auto=0;
+var Type=0;
+var sx=false;
+var tx='1';
+var km='1';
+var zj='';
+var countNum=100;
+ var redataid=eval('(' + datastr + ')');
+var cartype;
+
+{% if showalert %}
+layer.open({
+    type: 1,//弹窗类型
+    title:false,//是否展示标题，展示什么内容的标题
+    closeBtn: 0,//标题旁边的关闭按钮
+    shadeClose:true,//阴影
+    shadeClose:true,
+    move :'h4',//拖动
+    area: ['450px', '360px'], //宽高
+    content: $('#main')//抓取内容,
+});
+
+{% end %}
+
+//加载答题卡选项
+if( $('#tlists').find('li') ){
+  $('#tlists li').remove();
+  var temp_arry= JSON.parse(datastr);
+  for(var i=1; i < temp_arry.length +1; i++){
+    qdata = temp_arry[i-1];
+    // console.log(qdata);
+    try{
+      li_str_html = '<li id="T'+i+'" rid="'+i+'" num="'+i+'" trueanswer="'+qdata.ta+'" tixing="'+qdata.Type+'"><a href="javascript:;">'+i+'</a></li>'
+      $('#tlists').append(li_str_html);
+    }catch(err){
+
+    }
+  }
+};
+
+</script>
+<script type="text/javascript" src="/public/js/exam/kaoshi.js"></script>
+
+</body>
+</html>

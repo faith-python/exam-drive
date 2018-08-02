@@ -1,0 +1,162 @@
+<doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>2018驾照考试科目一_科目四模拟考试2018</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <link rel="stylesheet" type="text/css" href="/public/css/exam/style.css">
+  <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_1468169579_2859218.css">
+  <script type="text/javascript" src="/public/js/jquery-1.8.3.min.js"></script>
+  <script type="text/javascript" src="/public/js/exam/layer/layer.js"></script>
+  <link rel="stylesheet" href="/public/js/exam/layer/skin/layer.css" id="layui_layer_skinlayercss" style="">
+  <script type="text/javascript" src="/public/js/jquery.cookies.js"></script>
+  <script type="text/javascript" src="/public/js/exam/jquery.countdown.js"></script>
+</head>
+<body>
+    {% module ui_top() %}
+
+<div class="ui-content">
+  <div class="wrap clearfix">
+    <div class="ui-topic f-l" style="padding: 0 188px">
+      <span class="topic-bg">
+            <em class="hd-title wh-10">小车科目一顺序练习</em>
+            </span>
+      <div class="topic-t">
+        <div class="topic-l f-l" id="Content"><ul><li>1/1310. 驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？</li><li><input type="radio" name="choice" value="1">A、违章行为</li><li><input type="radio" name="choice" value="2">B、违法行为</li><li><input type="radio" name="choice" value="3">C、过失行为</li><li><input type="radio" name="choice" value="4">D、违规行为</li></ul></div>
+        <div class="topic-r f-l ">
+          <div class="imgorvideo"></div>
+          <div class="topic-but" id="btnlists" style="position: absolute; left: 100px; top: 527px; display: block;"></div>
+        </div>
+    </div>
+    <div class="topic-tp">
+      <div class="topic-bt">
+        <input class="topic-3" type="button" value="上一题" onclick="preQ()">
+        <input class="topic-2" type="button" value="下一题" onclick="nextQ()">
+        <span class="f-r">
+          <!-- <em class="wrong">（加入成功）</em> -->
+          <!-- <input class="topic-4 current" type="button" value="加入错题集" id="addwrong"/>
+          <input class="topic-4" type="button" value="我的错题集" id="cuotiji"/> -->
+          <input class="topic-4" type="button" value="查看详解" id="xiangjie">
+          <input class="topic-4" type="button" value="展开答题卡" id="datika">
+        </span>
+      </div>
+      <style type="text/css">
+        .pic i:first-child{background: url(/public/images/exam/test-icon.png) no-repeat 0 -85px;}
+      </style>
+      <div class="ui-info info-pic">
+       <em class="pic"><i onclick="changeType()"></i>答对自动下一题<i>答对：<font class="rightnum">0</font>题</i><i>答错：<font class="wrongnum">0</font>题</i><i>正确率：<font class="rightpercent">0%</font></i></em>
+       <div style="margin-bottom:10px;">
+
+       </div>
+       <div class="info-answer" style="display:none">
+        <ul id="tlists">
+
+                    <li id="T1" rid="1" num="1" trueanswer="2" tixing="2"><a href="javascript:;">1</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="topic-b-t t-bg" id="bestanswer" style="display:none;">
+    <span>试题详解</span>
+    <!--  <em>难度等级：<i class="tise-pos"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></em> -->
+   <p>“违反道路交通安全法”，违反法律法规即为违法行为。官方已无违章/违规的说法。</p>
+ </div>
+</div>
+
+</div>
+<div class="wrap clearfix" id="explain" style="display:none">
+  <div class="e-top"><h4>题目详细解说</h4></div>
+  <div class="e-content">
+    <p id="jieshi_content"></p>
+  </div>
+  <div class="e-bottom">
+    <button onclick="closeJiexi()">关闭解释</button>
+    <em>页面将在<span id="time">10</span>秒后自动关闭，回到考试状态！</em>
+  </div>
+</div>
+<div class="wrap clearfix" id="check" style="display:none">
+  <div class="c-top"><h4>温馨提示</h4></div>
+  <div class="c-content">
+    <p style="text-align:center;border:0px;"></p>
+  </div>
+  <div class="c-bottom">
+    <button class="current" id="continue">继续上一次</button>
+    <button onclick="closeDialog()" class="b2">重新练习</button>
+  </div>
+</div>
+
+
+</div>
+
+<div id="qanswers"></div>
+<script type="text/javascript">
+<!--top 划入事件-->
+  var cnum='1';
+  cnum=parseInt(cnum);
+  $('.chexing-top span:first-child').html($('.chexing-list a:nth-child('+cnum+')').html());
+  $('.chexing').mouseover(function(){
+    $('.chexing-list').show();
+  });
+  $('.chexing').mouseout(function(){
+    $('.chexing-list').hide();
+  });
+
+
+
+function jdhddh(thisObj,Num){
+  $('#navhljs1 a').removeClass('exam-current');
+  $('#navhljs1 a').eq(Num).addClass('exam-current');
+  if(thisObj.className == "active")return;
+    var tabObj = thisObj.parentNode.id;
+    var tabList = document.getElementById(tabObj).getElementsByTagName("a");
+    for(i=0; i <tabList.length; i++){
+     if (i == Num){
+      document.getElementById(tabObj+"_c"+i).style.display = "block";
+    }else{
+      document.getElementById(tabObj+"_c"+i).style.display = "none";
+    }
+  }
+}
+
+
+</script>
+
+
+<script src="/public/js/exam/load-question.js"></script>
+<script>
+
+
+
+ var redataid=eval('(' + datastr + ')');
+  var Auto=1;
+  var countNum='1000';
+  var Type=1;//练习
+  var tx='1';
+  var km='1';
+  var zj='';
+  var sx='1';
+
+if( $('#tlists').find('li') ){
+  $('#tlists li').remove();
+  var temp_arry= JSON.parse(datastr);
+  for(var i=0; i < temp_arry.length; i++){
+    qdata = temp_arry[i];
+    // console.log(qdata);
+    try{
+      li_str_html = '<li id="T'+qdata.id+'" rid="'+qdata.id+'" num="'+qdata.id+'" trueanswer="'+qdata.ta+'" tixing="'+qdata.Type+'"><a href="javascript:;">'+qdata.id+'</a></li>'
+      $('#tlists').append(li_str_html);
+    }catch(err){
+
+    }
+
+
+  }
+
+}
+</script>
+<script type="text/javascript" src="/public/js/exam/kaoshi.js"></script>
+
+</body>
+</html>

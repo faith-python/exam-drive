@@ -1,0 +1,16 @@
+#2018-05-09
+修正一项错误:
+	libsutil.py -> check_user_locked(装饰器)-逻辑错误!
+
+#2018-05-27
+添加分数存储数据库
+	修改/添加文件:
+		handler/api/ajax.py
+		model/source.py
+		libutil.py
+	必须先运行 model/source.py -->创建数据库表
+
+
+#2018-05-28
+添加分数记录模块,
+

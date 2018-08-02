@@ -1,0 +1,62 @@
+
+
+        <!--logo and iconic logo start-->
+        <div class="logo">
+            <a href="/control"></a>
+        </div>
+
+        <div class="logo-icon text-center">
+            <a href="/control"><img src="" alt=""></a>
+        </div>
+        <!--logo and iconic logo end-->
+
+
+        <div class="left-side-inner">
+
+            <!-- visible to small devices only -->
+            <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                <!--<div class="media logged-user">-->
+                    <!--<img alt="" src="images/photos/user-avatar.png" class="media-object">-->
+                    <!--<div class="media-body">-->
+                        <!--{% if current_user %}-->
+                            <!--<h4><a href="#">{{ current_user.nickname }}</a></h4>-->
+                        <!--{% else %}-->
+                            <!--<h4><a href="#">你好</a></h4>-->
+                        <!--{% end %}-->
+
+                        <!--<span>"Hello There..."</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <h5 class="left-nav-title">账户信息</h5>
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <!--<li><a href="#"><i class="fa fa-user"></i> <span>简况</span></a></li>-->
+                    <!--<li><a href="#"><i class="fa fa-cog"></i> <span>设置</span></a></li>-->
+                    <li><a href="/logout"><i class="fa fa-sign-out"></i> <span>登出</span></a></li>
+                </ul>
+            </div>
+
+            <!--sidebar nav start-->
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <!--<li><a href="/control"><i class="fa fa-home"></i> <span>控制面板</span></a></li>-->
+                <li class="menu-list"><a href="#" ><i class="fa fa-bar-chart-o"></i> <span>用户数据</span></a>
+                   <ul class="sub-menu-list">
+                        <li ><a href="/control/user"> 查看用户 </a></li>
+                        <li><a href="/control/user/answer"> 答题信息</a></li>
+                    </ul>
+                </li>
+
+                <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>题库数据</span></a>
+                    <ul class="sub-menu-list">
+                        <li><a href="/control/question/small"> 小车题库 </a></li>
+                        <li><a href="/control/question/truck"> 货车题库</a></li>
+                        <li><a href="/control/question/bus"> 客车题库 </a></li>
+                    </ul>
+                </li>
+                <li><a href="/control/question/4"><i class="fa fa-th-list"></i> <span>科目4题库</span></a></li>
+                <li><a href="/logout"><i class="fa fa-sign-in"></i> <span>退出</span></a></li>
+
+            </ul>
+            <!--sidebar nav end-->
+
+        </div>

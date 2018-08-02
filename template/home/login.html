@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="#" type="image/png">
+
+    <title>驾照考试-2018-登录</title>
+
+    <link href="/public/css/style.css" rel="stylesheet">
+    <link href="/public/css/style-responsive.css" rel="stylesheet">
+        <link rel="stylesheet" href="/public/layui/css/layui.css">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/public/js/html5shiv.js"></script>
+    <script src="/public/js/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="login-body" style="">
+
+<div class="container">
+
+    <form class="form-signin" action="/login" method="post">
+        {% raw xsrf_form_html() %}
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">登录</h1>
+            <img src="/public/images/login-logo.png" width="280px" alt="">
+        </div>
+        <div class="login-wrap">
+            <input type="text" class="form-control" placeholder="用户名" name="username" autofocus="">
+            <input type="password" class="form-control" placeholder="密码" name="password">
+
+            <span class="btn btn-lg btn-login btn-block btn-reg" type="submit">
+                <i class="fa fa-check"></i>
+            </span>
+
+            <div class="registration">还没有账号?<a class="" href="/reg">
+                    点击注册
+                </a>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" value="remember-me">记住我<span class="pull-right">
+                    <a data-toggle="modal" href="#myModal">忘记密码?</a>
+
+                </span>
+            </label>
+
+        </div>
+
+    </form>
+    <!--forget password-->
+    <form action="/forget" class="">
+         <!-- Modal -->
+        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title">忘记密码?</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>请输入你的手机号码!!!</p>
+                        <input type="text" name="mobile" placeholder="手机号" autocomplete="off" class="form-control placeholder-no-fix">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" class="btn btn-default" type="button">返回</button>
+                        <button class="btn btn-primary" type="button">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- modal -->
+    </form>
+    <!--forget password-->
+
+</div>
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<script src="/public/js/jquery-1.10.2.min.js"></script>
+<script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/js/modernizr.min.js"></script>
+<script src="/public/layui/layui.all.js"></script>
+<script src="/public/js/exam/sigin.js"></script>
+<script>
+    $sigin.login_init();
+</script>
+
+
+
+
+</body></html>

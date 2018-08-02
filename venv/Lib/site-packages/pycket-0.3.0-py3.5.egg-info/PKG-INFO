@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: pycket
+Version: 0.3.0
+Summary: Redis/Memcached sessions for Tornado
+Home-page: https://github.com/diogobaeder/pycket
+Author: Diogo Baeder
+Author-email: contato@diogobaeder.com.br
+License: BSD 2-Clause
+Description: Redis/Memcached sessions for Tornado (see GitHub page for more info)
+Keywords: pycket redis memcached tornado session python
+Platform: UNKNOWN
+Classifier: Topic :: Internet :: WWW/HTTP :: Session
+Classifier: Topic :: Database
