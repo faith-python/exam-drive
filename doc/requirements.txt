@@ -2,7 +2,7 @@ certifi==2017.11.5
 chardet==3.0.4
 idna==2.6
 pbkdf2==1.3
-Pillow==5.0.0
+Pillow==8.1.1
 #pkg-resources==0.0.0
 pycket==0.3.0
 PyMySQL==0.7.11
